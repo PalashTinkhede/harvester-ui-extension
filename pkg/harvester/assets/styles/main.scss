@@ -1,0 +1,261 @@
+// ZEUS Premium Dark Mode Styles
+// Designed for Harvester UI Extension
+
+:root {
+    --zeus-primary: #7c4dff;
+    --zeus-bg: #f2f3f7; // Light gray sidebar area
+    --zeus-main-bg: #2b2d3c; // Dark slate main area
+    --zeus-sidebar-bg: #d1d5df;
+    --zeus-header-bg: #2b2d3c;
+    --zeus-card-bg: #353849; // Slightly lighter card back
+    --zeus-text: #ffffff;
+    --zeus-text-muted: #9aa0af;
+    --zeus-border: transparent; // Clean, no borders
+
+    // Colorful card accents
+    --card-accent-1: #2bc17b; // Green
+    --card-accent-2: #2499ed; // Blue
+    --card-accent-3: #6d62d3; // Purple
+
+    --zeus-primary: #6d62d3;
+    --zeus-bg: #1e222d; // Sidebar area
+    --zeus-main-bg: #1a1e27; // Main area
+    --zeus-sidebar-bg: #1e222d;
+    --zeus-header-bg: #1e222d;
+    --zeus-card-bg: #222834;
+    --zeus-text: #ffffff;
+    --zeus-text-muted: #8e95a5;
+    --zeus-border: #2c3242;
+}
+
+// Global Body Overrides
+body {
+    background: var(--zeus-main-bg) !important;
+    color: var(--zeus-text) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    min-height: 100vh;
+}
+
+// Global Overlay for depth
+#app::before {
+    display: none; // Remove overlay for flat design
+}
+
+// Sidebar
+.side-menu {
+    background-color: var(--zeus-bg) !important;
+    border-right: none !important;
+}
+
+// Header
+header {
+    background-color: var(--zeus-header-bg) !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+// Premium Card / Surface Styling
+.card,
+.premium-surface,
+.zeus-card {
+    background: var(--zeus-card-bg) !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 24px;
+    box-shadow: none !important;
+}
+
+// Flat Dashboard Layout System
+.zeus-flat-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.zeus-top-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.zeus-middle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.zeus-bottom-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.flat-card {
+    background: var(--zeus-card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    color: var(--zeus-text);
+
+    &.bg-dark {
+        background: var(--zeus-card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    &.color-accent-1 {
+        background-color: var(--card-accent-1);
+    }
+
+    &.color-accent-2 {
+        background-color: var(--card-accent-2);
+    }
+
+    &.color-accent-3 {
+        background-color: var(--card-accent-3);
+    }
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+// Button Styling
+.btn.role-primary {
+    background-color: var(--zeus-primary) !important;
+    border-color: var(--zeus-primary) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+        background-color: var(--zeus-primary-hover) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(124, 77, 255, 0.45) !important;
+    }
+}
+
+// Table Styling
+table {
+    background-color: transparent !important;
+
+    tr {
+        border-bottom: 1px solid var(--zeus-border) !important;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.03) !important;
+        }
+    }
+
+    th {
+        color: var(--zeus-text-muted) !important;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+    }
+}
+
+// Micro-animations
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+// Specific Harvester Overrides
+.upgrade-info {
+    background-color: var(--zeus-card-bg) !important;
+    color: var(--zeus-text) !important;
+    border: 1px solid var(--zeus-border) !important;
+    box-shadow: var(--premium-shadow) !important;
+}
+
+.bordered-section {
+    border-bottom: 1px solid var(--zeus-border) !important;
+}
+
+.text-muted {
+    color: var(--zeus-text-muted) !important;
+}
+
+// Navigation Header
+.nav {
+    background-color: var(--zeus-header-bg) !important;
+    backdrop-filter: var(--glass-blur) !important;
+}
+
+// Side menu overrides (Rancher left nav)
+.side-nav {
+
+    // Hide the version string at the bottom of the left nav
+    .version,
+    .footer {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    // Active item highlight
+    .accordion.group-highlight .header.active,
+    .body .child.router-link-active>A,
+    .accordion-item .child.router-link-exact-active>A,
+    .child.active>a,
+    .nuxt-link-active {
+        background-color: #a9c5f6 !important;
+
+        h6,
+        span,
+        div,
+        i,
+        p {
+            color: #131826 !important;
+            font-weight: 700 !important;
+        }
+    }
+
+    // Hover effect
+    .accordion:not(.group-highlight) .header:hover,
+    .child:hover>A {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+}
+
+// Burger menu overrides (TopLevelMenu)
+.side-menu {
+
+    .category-name,
+    .option .label {
+        color: var(--zeus-text) !important;
+    }
+
+    .option:hover {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .option.nuxt-link-active,
+    .option.active,
+    .option.router-link-active {
+        background-color: #a9c5f6 !important;
+
+        .label,
+        i {
+            color: #131826 !important;
+            font-weight: 700 !important;
+        }
+    }
+
+    // Hide the version string at the bottom
+    .version,
+    .footer .version {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}
